@@ -1,6 +1,7 @@
 <?php
 
 // SISTEMA DE CALCULADORA EM PHP
+//comentario feito através do site github
 
 // PEGAR VARIÁVEIS VINDA NA URL
 // $variaveis = $_GET;
