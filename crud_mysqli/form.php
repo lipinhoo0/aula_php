@@ -23,25 +23,25 @@
                             <div class="row mb-3">
                                 <div class="col-md-1">
                                     <label for="id_cliente" class="form-label"><i class="bi bi-123"></i> ID</label>
-                                    <input readonly type="text" name="id_cliente" id="id_cliente" class="form-control">
+                                    <input readonly type="text" name="pk_cliente" id="pk_cliente" class="form-control">
                                 </div>
                                 <div class="col">
                                     <label for="nome" class="form-label"><i class="bi bi-person-vcard"></i> Nome</label>
-                                    <input type="text" name="nome" id="nome" class="form-control">
+                                    <input type="text" name="nome" id="nome" class="form-control" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col">
-                                    <label for="cpf" class="form-label" data-mask="000.000.000-00"><i class="bi bi-person-vcard-fill"></i> CPF</label>
-                                    <input type="text" name="cpf" id="cpf" class="form-control">
+                                    <label for="cpf" class="form-label" ><i class="bi bi-person-vcard-fill"></i> CPF</label>
+                                    <input type="text" name="cpf" id="cpf" class="form-control"data-mask="000.000.000-00" required minlength="14">
                                 </div>
                                 <div class="col">
-                                    <label for="whatsapp" class="form-label" data-mask="(00) 0 0000-0000"><i class="bi bi-whatsapp"></i> Whatsapp</label>
-                                    <input type="text" name="whatsapp" id="whatsapp" class="form-control">
+                                    <label for="whatsapp" class="form-label" ><i class="bi bi-whatsapp"></i> Whatsapp</label>
+                                    <input type="text" name="whatsapp" id="whatsapp" class="form-control" data-mask="(00) 0 0000-0000">
                                 </div>
                                 <div class="col">
                                     <label for="email" class="form-label"><i class="bi bi-envelope-at"></i> Email</label>
-                                    <input type="email" name="email" id="email" class="form-control">
+                                    <input type="email" name="email" id="email" class="form-control" required >
                                 </div>
                             </div>
                         </div>

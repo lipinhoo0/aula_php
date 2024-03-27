@@ -17,9 +17,9 @@
                 <div class="card">
                     <div class="card-header">
                         Lista de Ordem de Serviço
-                        <button class="btn btn-primary btn-sm float-end">
+                        <a href="form.php" class="btn btn-primary btn-sm float-end">
                             <i class="bi bi-plus"></i> Novo
-                        </button>
+                        </a>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered table-hover align-middle ">
@@ -27,45 +27,42 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Cliente</th>
-                                    <th>Serviços</th>
-                                    <th>R$ Valor</th>
+                                    <th>CPF</th>
                                     <th>Opções</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Eugenio Silva</td>
-                                    <td>
-                                        Manutenção de micro<br>
-                                        Configuração de roteador
-                                    </td>
-                                    <td>R$ 500,00</td>
-                                    <td>
-                                        <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-                                            <div class="btn-group me-2" role="group" aria-label="First group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary bi bi-brush "></button>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary bi bi-trash"></button>
+                                <?php
+                                include('../conexao_mysqli.php');
+                                $sql = "
+                                SELECT pk_cliente, nome, cpf
+                                FROM clientes
+                                ORDER BY pk_cliente
+                                ";
+
+                                $query = mysqli_query($conn, $sql);
+
+                                //verificar se encontrou registros no mysql
+                                if (mysqli_num_rows($query) > 0) {
+                                    // laço de repetição para listar item a item
+                                    while ($row = mysqli_fetch_object($query)) {
+                                        echo ' 
+                                        <tr>
+                                        <td class ="text-center">' . $row->pk_cliente . '</td>
+                                        <td>' . $row->nome . '</td>
+                                        <td class= "text-center">' . $row->cpf . '</td>
+                                        <td class= "text-center">
+                                            <div class=" text-center btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                                                <div class="btn-group me-2" role="group" aria-label="First group">
+                                                    <a href="form.php?ref=' . base64_encode($row->pk_cliente) . '" class="btn btn-sm btn-outline-secondary bi bi-brush "></a>
+                                                    <a href="remover.php?ref=' . base64_encode($row->pk_cliente) . '" class="btn btn-sm btn-outline-secondary bi bi-trash"></a>
+                                                </div>
                                             </div>
-                                            </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Guilherme Batemarque</td>
-                                    <td>
-                                        Instalação de Software
-                                    </td>
-                                    <td>R$ 100,00</td>
-                                    <td>
-                                        <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-                                            <div class="btn-group me-2" role="group" aria-label="First group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary bi bi-brush "></button>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary bi bi-trash"></button>
-                                            </div>
-                                            </button>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        </tr> ';
+                                    }
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
