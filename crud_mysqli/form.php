@@ -33,7 +33,7 @@
                             <div class="row mb-3">
                                 <div class="col">
                                     <label for="cpf" class="form-label" data-mask="000.000.000-00"><i class="bi bi-person-vcard-fill"></i> CPF</label>
-                                    <input type="number" name="cpf" id="cpf" class="form-control">
+                                    <input type="text" name="cpf" id="cpf" class="form-control">
                                 </div>
                                 <div class="col">
                                     <label for="whatsapp" class="form-label" data-mask="(00) 0 0000-0000"><i class="bi bi-whatsapp"></i> Whatsapp</label>
